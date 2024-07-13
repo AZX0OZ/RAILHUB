@@ -1,0 +1,335 @@
+-- 
+ -- ###############            ###           ###   ###              ###          ###   ###        ###   ############                      
+ -- ###          ###          #####          ###   ###              ###          ###   ###        ###   ###       ###                         
+ -- ###          ###         ### ###               ###              ###          ###   ###        ###   ###       ###              
+ -- ###        ###          ###   ###        ###   ###              ###          ###   ###        ###   ############                          
+ -- ############           ###     ###       ###   ###              ################   ###        ###   ###        ###                                  
+ -- ###       ###         #############      ###   ###              ################   ###        ###   ###         ###                   
+ -- ###        ###       ###         ###     ###   ###              ###          ###   ###        ###   ###         ###                              
+ -- ###         ###     ###           ###    ###   ##############   ###          ###    ############    ###         ###                         
+ -- ###          ###   ###             ###   ###   ##############   ###          ###     ##########     ##############                                               
+----------------------------------------------------------------------------------------------------------------------
+ ---------------------------------------------------------------------------------------------------------------------
+ ---------------------------------------------------------------------------------------------------------------------
+ ---------------------------------------------------------------------------------------------------------------------
+ ---------------------------------------------------------------------------------------------------------------------
+ ---------------------------------------------------------------------------------------------------------------------
+ ---------------------------------------------------------------------------------------------------------------------
+ ---------------------------------------------------------------------------------------------------------------------
+-- Ссылка на Библиотеку
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robojini/Tuturial_UI_Library/main/UI_Template_1"))()
+--[[ 
+В данный момент стоит тема "RJTheme3" ,
+вы можете использовать другую тему приведённую ниже -
+"RJTheme1"
+"RJTheme2"
+"RJTheme3"
+"RJTheme4"
+"RJTheme5"
+"RJTheme6"
+"RJTheme7"
+"RJTheme8"
+//////////////////////////////////////////////////////////////////
+
+Что бы сделать свою тему , уберите часть скрипта из "комминтариев" ,
+который находится чуть ниже , и вместо "RJTheme3" в переменной "Windows" - 
+напишите переменную которая используется в скрипте чуть ниже .
+]]
+--[[
+local colors = {
+	-- Цвет фона у Секций
+    SchemeColor = Color3.fromRGB(150, 72, 148),
+	-- Цвет фона в правой части UI
+	Background = Color3.fromRGB(15,15,15),
+	-- Цвет фона в левой части UI
+    Header = Color3.fromRGB(15,15,15),
+	-- Цвет текста
+    TextColor = Color3.fromRGB(255,255,255),
+	-- Цвет фона у кнопок
+    ElementColor = Color3.fromRGB(20, 20, 20)
+}
+]]
+-- Создать окно UI
+local Window = Library.CreateLib("RAILhub     Army Roblox RP RU", "RJTheme3")
+
+-- Секция
+local Tab = Window:NewTab("тп")
+
+-- Подсекция
+local Section = Tab:NewSection("тп")
+
+-- Заголовок
+Section:NewLabel("фарм тп")
+
+-- Кнопка
+Section:NewButton("тп задание", "тп чтоб брать задание", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(623.0984497070312, 3.999999523162842, -697.6439208984375)
+end)
+
+-- Кнопка
+Section:NewButton("тп склад", "тп чтоб брать боеприпасы", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(106.91151428222656, 3.2501282691955566, 113.99207305908203)
+end)
+
+-- Подсекция-------------------------------------------------------------------
+local Section = Tab:NewSection("тп точки")
+
+-- Кнопка
+Section:NewButton("кафе", "тп", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1510.12548828125, 3, -50.033023834228516)
+end)
+
+-- Кнопка
+Section:NewButton("кпп1", "тп", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(345.38934326171875, 3.099998950958252, 3.619844436645508)
+end)
+
+-- Кнопка
+Section:NewButton("кпп2", "тп", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2096.35595703125, 2.999999523162842, 93.45025634765625)
+end)
+
+-- Кнопка
+Section:NewButton("деревня", "тп", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2578.659912109375, 3.050001621246338, 48.234134674072266)
+end)
+
+-- Кнопка
+Section:NewButton("уч центр", "тп", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(33.97133255004883, 3.0999984741210938, -13.471328735351562)
+end)
+
+-- Кнопка
+Section:NewButton("база терористов", "тп", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(647.6337280273438, 18.26999282836914, -717.4557495117188)
+end)
+
+-- Кнопка
+Section:NewButton("кусты у кпп1", "тп", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(486.0335693359375, 2.999999523162842, 12.118302345275879)
+end)
+
+-- Кнопка
+Section:NewButton("база наёмников", "тп", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(848.868408203125, 3.019998550415039, -1238.0062255859375)
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- Секция
+local Tab = Window:NewTab("игрок")
+
+-- Подсекция
+local Section = Tab:NewSection("скорость")
+
+
+-- Слайдер
+Section:NewSlider("скорость", "скорость ёпте, че тупой?", 40, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+-- Подсекция
+local Section = Tab:NewSection("hitbox")
+
+-- Кнопка
+Section:NewButton("bighitbox", "большие хитбоксы", function()
+    -- Made By InfinityMercury
+_G.Size = 20
+_G.Disabled = true
+
+game:GetService('RunService').RenderStepped:connect(function()
+  if _G.Disabled then
+    for i,v in next, game:GetService('Players'):GetPlayers() do
+      if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+        pcall(function()
+          v.Character.HumanoidRootPart.Size = Vector3.new(_G.Size,_G.Size,_G.Size)
+          v.Character.HumanoidRootPart.Transparency = 0.9
+          v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really red")
+          v.Character.HumanoidRootPart.Material = "Neon"
+          v.Character.HumanoidRootPart.CanCollide = false
+        end)
+      end
+    end
+  end
+end)
+end)
+
+-- Подсекция
+local Section = Tab:NewSection("esp")
+
+-- Кнопка
+Section:NewButton("esp", "видеть через стены", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/UESP'))()
+end)
+
+-- Подсекция
+local Section = Tab:NewSection("tptool")
+
+-- Кнопка
+Section:NewButton("tptool", "достал, кликнул, и типехнулся туда куда кликнул", function()
+local LocalPlayer = game.Players.LocalPlayer
+local rp = LocalPlayer.Character.HumanoidRootPart
+local tool = Instance.new("Tool",LocalPlayer.Backpack)
+local mouse = LocalPlayer:GetMouse()
+tool.Name = "click tp"
+tool.RequiresHandle = false
+tool.Activated:Connect(function()
+    rp.CFrame = CFrame.new(mouse.Hit.X,mouse.Hit.Y + 4,mouse.Hit.Z)
+end)
+end)
+
+-- Подсекция
+local Section = Tab:NewSection("click delete")
+
+-- Кнопка
+Section:NewButton("ctrl click delete", "кликнул = удалил", function()
+--Hold CLTR and click to delete parts (you need to rejoin if you delete something wrong)
+local Plr = game:GetService("Players").LocalPlayer
+local Mouse = Plr:GetMouse()
+ 
+Mouse.Button1Down:connect(function()
+if not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then return end
+if not Mouse.Target then return end
+Mouse.Target:Destroy()
+end)
+end)
+
+-- Секция
+local Tab = Window:NewTab("мир")
+
+-- Подсекция
+local Section = Tab:NewSection("день-ночь")
+
+-- Кнопка
+Section:NewButton("день-ночь", "сделает день-ночь         вкл-выкл", function()
+if not _G.FullBrightExecuted then
+
+	_G.FullBrightEnabled = false
+
+	_G.NormalLightingSettings = {
+		Brightness = game:GetService("Lighting").Brightness,
+		ClockTime = game:GetService("Lighting").ClockTime,
+		FogEnd = game:GetService("Lighting").FogEnd,
+		GlobalShadows = game:GetService("Lighting").GlobalShadows,
+		Ambient = game:GetService("Lighting").Ambient
+	}
+
+	game:GetService("Lighting"):GetPropertyChangedSignal("Brightness"):Connect(function()
+		if game:GetService("Lighting").Brightness ~= 1 and game:GetService("Lighting").Brightness ~= _G.NormalLightingSettings.Brightness then
+			_G.NormalLightingSettings.Brightness = game:GetService("Lighting").Brightness
+			if not _G.FullBrightEnabled then
+				repeat
+					wait()
+				until _G.FullBrightEnabled
+			end
+			game:GetService("Lighting").Brightness = 1
+		end
+	end)
+
+	game:GetService("Lighting"):GetPropertyChangedSignal("ClockTime"):Connect(function()
+		if game:GetService("Lighting").ClockTime ~= 12 and game:GetService("Lighting").ClockTime ~= _G.NormalLightingSettings.ClockTime then
+			_G.NormalLightingSettings.ClockTime = game:GetService("Lighting").ClockTime
+			if not _G.FullBrightEnabled then
+				repeat
+					wait()
+				until _G.FullBrightEnabled
+			end
+			game:GetService("Lighting").ClockTime = 12
+		end
+	end)
+
+	game:GetService("Lighting"):GetPropertyChangedSignal("FogEnd"):Connect(function()
+		if game:GetService("Lighting").FogEnd ~= 786543 and game:GetService("Lighting").FogEnd ~= _G.NormalLightingSettings.FogEnd then
+			_G.NormalLightingSettings.FogEnd = game:GetService("Lighting").FogEnd
+			if not _G.FullBrightEnabled then
+				repeat
+					wait()
+				until _G.FullBrightEnabled
+			end
+			game:GetService("Lighting").FogEnd = 786543
+		end
+	end)
+
+	game:GetService("Lighting"):GetPropertyChangedSignal("GlobalShadows"):Connect(function()
+		if game:GetService("Lighting").GlobalShadows ~= false and game:GetService("Lighting").GlobalShadows ~= _G.NormalLightingSettings.GlobalShadows then
+			_G.NormalLightingSettings.GlobalShadows = game:GetService("Lighting").GlobalShadows
+			if not _G.FullBrightEnabled then
+				repeat
+					wait()
+				until _G.FullBrightEnabled
+			end
+			game:GetService("Lighting").GlobalShadows = false
+		end
+	end)
+
+	game:GetService("Lighting"):GetPropertyChangedSignal("Ambient"):Connect(function()
+		if game:GetService("Lighting").Ambient ~= Color3.fromRGB(178, 178, 178) and game:GetService("Lighting").Ambient ~= _G.NormalLightingSettings.Ambient then
+			_G.NormalLightingSettings.Ambient = game:GetService("Lighting").Ambient
+			if not _G.FullBrightEnabled then
+				repeat
+					wait()
+				until _G.FullBrightEnabled
+			end
+			game:GetService("Lighting").Ambient = Color3.fromRGB(178, 178, 178)
+		end
+	end)
+
+	game:GetService("Lighting").Brightness = 1
+	game:GetService("Lighting").ClockTime = 12
+	game:GetService("Lighting").FogEnd = 786543
+	game:GetService("Lighting").GlobalShadows = false
+	game:GetService("Lighting").Ambient = Color3.fromRGB(178, 178, 178)
+
+	local LatestValue = true
+	spawn(function()
+		repeat
+			wait()
+		until _G.FullBrightEnabled
+		while wait() do
+			if _G.FullBrightEnabled ~= LatestValue then
+				if not _G.FullBrightEnabled then
+					game:GetService("Lighting").Brightness = _G.NormalLightingSettings.Brightness
+					game:GetService("Lighting").ClockTime = _G.NormalLightingSettings.ClockTime
+					game:GetService("Lighting").FogEnd = _G.NormalLightingSettings.FogEnd
+					game:GetService("Lighting").GlobalShadows = _G.NormalLightingSettings.GlobalShadows
+					game:GetService("Lighting").Ambient = _G.NormalLightingSettings.Ambient
+				else
+					game:GetService("Lighting").Brightness = 1
+					game:GetService("Lighting").ClockTime = 12
+					game:GetService("Lighting").FogEnd = 786543
+					game:GetService("Lighting").GlobalShadows = false
+					game:GetService("Lighting").Ambient = Color3.fromRGB(178, 178, 178)
+				end
+				LatestValue = not LatestValue
+			end
+		end
+	end)
+end
+
+_G.FullBrightExecuted = true
+_G.FullBrightEnabled = not _G.FullBrightEnabled
+end)
+
+-- Секция
+local Tab = Window:NewTab("создатель")
+
+-- Подсекция
+local Section = Tab:NewSection("discord = sree2246")
+
+
+
+
+
+
+
+
