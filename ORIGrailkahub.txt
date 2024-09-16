@@ -38,7 +38,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Roboj
 --[[
 local colors = {
 	-- Цвет фона у Секций
-    SchemeColor = Color3.fromRGB(150, 72, 148),
+    SchemeColor = Color3.fromRGB(120, 15, 255),
 	-- Цвет фона в правой части UI
 	Background = Color3.fromRGB(15,15,15),
 	-- Цвет фона в левой части UI
@@ -134,7 +134,7 @@ local Section = Tab:NewSection("скорость")
 
 
 -- Слайдер
-Section:NewSlider("скорость", "скорость ёпте, че тупой?", 40, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
+Section:NewSlider("скорость", "скорость игрока", 40, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 
@@ -168,7 +168,7 @@ end)
 local Section = Tab:NewSection("esp")
 
 -- Кнопка
-Section:NewButton("esp", "видеть через стены", function()
+Section:NewButton("esp", "видеть игроков через стены", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/UESP'))()
 end)
 
@@ -189,10 +189,10 @@ end)
 end)
 
 -- Подсекция
-local Section = Tab:NewSection("click delete")
+local Section = Tab:NewSection("click delete tool")
 
 -- Кнопка
-Section:NewButton("ctrl click delete", "кликнул = удалил", function()
+Section:NewButton("ctrl+click=delete", "кликнул = удалил", function()
 --Hold CLTR and click to delete parts (you need to rejoin if you delete something wrong)
 local Plr = game:GetService("Players").LocalPlayer
 local Mouse = Plr:GetMouse()
@@ -211,7 +211,7 @@ local Tab = Window:NewTab("мир")
 local Section = Tab:NewSection("день-ночь")
 
 -- Кнопка
-Section:NewButton("день-ночь", "сделает день-ночь         вкл-выкл", function()
+Section:NewButton("все светло", "удаляет тени + делает день         вкл-выкл", function()
 if not _G.FullBrightExecuted then
 
 	_G.FullBrightEnabled = false
@@ -321,11 +321,13 @@ _G.FullBrightEnabled = not _G.FullBrightEnabled
 end)
 
 -- Секция
-local Tab = Window:NewTab("создатель")
+local Tab = Window:NewTab("от создателя")
 
 -- Подсекция
-local Section = Tab:NewSection("discord = sree2246")
+local Section = Tab:NewSection("discord = sree2246 писать по поводу багов")
 
+-- Подсекция
+local Section = Tab:NewSection("v 0.0.1   16.09.2024")
 
 
 
