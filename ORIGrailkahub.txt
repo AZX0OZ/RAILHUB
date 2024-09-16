@@ -144,7 +144,7 @@ local Section = Tab:NewSection("hitbox")
 -- Кнопка
 Section:NewButton("bighitbox", "большие хитбоксы", function()
     -- Made By InfinityMercury
-_G.Size = 20
+_G.Size = 10
 _G.Disabled = true
 
 game:GetService('RunService').RenderStepped:connect(function()
