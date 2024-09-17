@@ -59,7 +59,7 @@ local Tab = Window:NewTab("тп")
 local Section = Tab:NewSection("тп")
 
 -- Заголовок
-Section:NewLabel("фарм тп")
+Section:NewLabel("фарм тп           КОНТРАБАНДИСТЫ")
 
 -- Кнопка
 Section:NewButton("тп задание", "тп чтоб брать задание", function()
@@ -326,7 +326,7 @@ local Tab = Window:NewTab("от создателя")
 local Section = Tab:NewSection("discord = sree2246 писать по поводу багов")
 
 -- Подсекция
-local Section = Tab:NewSection("v 0.1.1         17.09.2024")
+local Section = Tab:NewSection("v 0.1.1         18.09.2024")
 
 
 
