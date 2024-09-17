@@ -50,7 +50,7 @@ local colors = {
 }
 ]]
 -- Создать окно UI
-local Window = Library.CreateLib("RAILhub     Army Roblox RP RU", "RJTheme3")
+local Window = Library.CreateLib("RAILhub     Army Roblox RP RU", "RJTheme7")
 
 -- Секция
 local Tab = Window:NewTab("тп")
