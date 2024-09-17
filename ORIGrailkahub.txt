@@ -141,9 +141,9 @@ end)
 -- Подсекция
 local Section = Tab:NewSection("hitbox")
 
--- Слайдер
-Section:NewSlider("bighitbox", "большие хитбоксы", 40, 0, function(s) -- 40 (Макс. значение) | 0 (Мин. значение)
-    _G.Size = s
+-- Кнопка
+Section:NewButton("big hitbox", "делает большими хитбоксы", function()
+    _G.Size = 15
 _G.Disabled = true
 
 game:GetService('RunService').RenderStepped:connect(function()
