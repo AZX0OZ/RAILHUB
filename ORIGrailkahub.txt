@@ -46,7 +46,7 @@ local colors = {
 	-- Цвет текста
     TextColor = Color3.fromRGB(255,255,255),
 	-- Цвет фона у кнопок
-    ElementColor = Color3.fromRGB(20, 20, 20)
+    ElementColor = Color3.fromRGB(59, 59, 59)
 }
 ]]
 -- Создать окно UI
