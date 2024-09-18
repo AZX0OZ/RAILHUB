@@ -56,10 +56,7 @@ local Window = Library.CreateLib("RAILhub     Army Roblox RP RU", "RJTheme7")
 local Tab = Window:NewTab("тп")
 
 -- Подсекция
-local Section = Tab:NewSection("тп")
-
--- Заголовок
-Section:NewLabel("фарм тп           КОНТРАБАНДИСТЫ")
+local Section = Tab:NewSection("фарм тп           КОНТРАБАНДИСТЫ")
 
 -- Кнопка
 Section:NewButton("тп задание", "тп чтоб брать задание", function()
@@ -128,6 +125,14 @@ end)
 
 -- Секция
 local Tab = Window:NewTab("игрок")
+
+-- Подсекция
+local Section = Tab:NewSection("FOV")
+
+-- Слайдер
+Section:NewSlider("FOV (new)", "Изменяет поле зрения камеры", 120, 10, function(value) -- 120 (Макс. значение) | 50 (Мин. значение)
+    game.Workspace.CurrentCamera.FieldOfView = value -- Устанавливаем новое значение FOV
+end)
 
 -- Подсекция
 local Section = Tab:NewSection("скорость")
@@ -207,7 +212,7 @@ end)
 local Tab = Window:NewTab("мир")
 
 -- Подсекция
-local Section = Tab:NewSection("день-ночь")
+local Section = Tab:NewSection("карта")
 
 -- Кнопка
 Section:NewButton("все светло", "удаляет тени + делает день         вкл-выкл", function()
@@ -319,14 +324,87 @@ _G.FullBrightExecuted = true
 _G.FullBrightEnabled = not _G.FullBrightEnabled
 end)
 
+-- Кнопка
+Section:NewButton("Удалить зелень", "Удаляет всю растительность", function()
+    -- Ищем папку "map" в Workspace
+    local mapFolder = game.Workspace:FindFirstChild("map") 
+
+    if mapFolder then
+        -- Удаляем папку "Trees"
+        local treesFolder = mapFolder:FindFirstChild("Trees") 
+        
+        if treesFolder then
+            treesFolder:Destroy() -- Удаляем папку Trees
+            print("Папка 'Trees' была удалена.") 
+        else
+            print("Папка 'Trees' не найдена в папке 'map'.") 
+        end
+
+        -- Удаляем сгруппированную модель "tree"
+        local treeModel = mapFolder:FindFirstChild("Tree") 
+
+        if treeModel then
+            TreeModel:Destroy() -- Удаляем сгруппированную модель tree
+            print("Модель 'tree' была удалена.") 
+        else
+            print("Модель 'tree' не найдена в папке 'map'.") 
+        end
+
+    else
+        print("Папка 'map' не найдена в Workspace.") 
+    end
+end)
+
+-- Кнопка
+Section:NewButton("Удалить туман", "Удаляет все объекты из папки Lighting", function()
+    -- Получаем папку Lighting
+    local lightingFolder = game:GetService("Lighting") 
+
+    -- Удаляем все объекты в Lighting
+    for _, child in ipairs(lightingFolder:GetChildren()) do
+        child:Destroy() -- Удаляем объект
+        print("Объект '" .. child.Name .. "' был удален из Lighting.") -- Выводим сообщение о удалении
+    end
+
+    print("Все объекты в Lighting были успешно удалены.")
+end)
+
+-- Секция
+local Tab = Window:NewTab("разное")
+
+-- Подсекция
+local Section = Tab:NewSection("разное")
+
+-- Кнопка
+Section:NewButton("Infinite Yield", "запускает скрипт infinite yield", function()
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+
+end)
+
+-- Кнопка
+Section:NewButton("Удалить все текстуры (new)                              test", "Удаляет все текстуры и детали из Workspace", function()
+    -- Проходим через все объекты в Workspace
+    for _, object in ipairs(game.Workspace:GetDescendants()) do
+        -- Проверяем, является ли объект текстурой или декалем
+        if object:IsA("Texture") or object:IsA("Decal") then
+            object:Destroy() -- Удаляем текстуру или декаль
+            print("Удалено: " .. object.Name) -- Выводим сообщение об удалении
+        end
+    end
+
+    print("Все текстуры и декали были успешно удалены.")
+end)
+
+
 -- Секция
 local Tab = Window:NewTab("от создателя")
 
 -- Подсекция
-local Section = Tab:NewSection("discord = sree2246 писать по поводу багов")
+local Section = Tab:NewSection("discord  =  @sree2246 писать по поводу багов")
 
 -- Подсекция
-local Section = Tab:NewSection("v 0.1.1         18.09.2024")
+local Section = Tab:NewSection("v 0.1.4         18.09.2024")
 
 
 
