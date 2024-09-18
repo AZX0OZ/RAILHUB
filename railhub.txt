@@ -92,7 +92,7 @@ Section:NewButton("деревня", "тп", function()
 end)
 
 -- Кнопка
-Section:NewButton("уч центр", "тп", function()
+Section:NewButton("центр военной части", "тп", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(33.97133255004883, 3.0999984741210938, -13.471328735351562)
 end)
 
@@ -168,6 +168,39 @@ game:GetService('RunService').RenderStepped:connect(function()
 end)
 end)
 
+-- Slider for setting big hitbox size
+Section:NewSlider("big hitbox (test)", "большие хитбоксы (не доработано, риск лагов!)", 40, 0, function(s) 
+    _G.Size = s
+    _G.Disabled = true
+
+    local Players = game:GetService('Players')
+    local LocalPlayer = Players.LocalPlayer
+    local RunService = game:GetService('RunService')
+
+    RunService.Heartbeat:Connect(function()
+        if _G.Disabled then
+            for _, player in ipairs(Players:GetPlayers()) do
+                if player ~= LocalPlayer and player.Character then
+                    local humanoidRootPart = player.Character:FindFirstChild("HumanoidRootPart")
+                    if humanoidRootPart then
+                        -- Проверяем, изменился ли размер
+                        if humanoidRootPart.Size ~= Vector3.new(_G.Size, _G.Size, _G.Size) then
+                            pcall(function()
+                                humanoidRootPart.Size = Vector3.new(_G.Size, _G.Size, _G.Size)
+                                humanoidRootPart.Transparency = 0.9
+                                humanoidRootPart.BrickColor = BrickColor.new("Really red")
+                                humanoidRootPart.Material = Enum.Material.Neon
+                                humanoidRootPart.CanCollide = false
+                            end)
+                        end
+                    end
+                end
+            end
+        end
+    end)
+end)
+
+
 -- Подсекция
 local Section = Tab:NewSection("esp")
 
@@ -175,6 +208,8 @@ local Section = Tab:NewSection("esp")
 Section:NewButton("esp", "видеть игроков через стены", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/UESP'))()
 end)
+
+
 
 -- Подсекция
 local Section = Tab:NewSection("tptool")
@@ -404,8 +439,7 @@ local Tab = Window:NewTab("от создателя")
 local Section = Tab:NewSection("discord  =  @sree2246 писать по поводу багов")
 
 -- Подсекция
-local Section = Tab:NewSection("v 0.1.4         18.09.2024")
-
+local Section = Tab:NewSection("v 0.1.6         19.09.2024")
 
 
 
