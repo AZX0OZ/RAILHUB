@@ -484,7 +484,7 @@ local Tab = Window:NewTab("От создателя")
 local Section = Tab:NewSection("discord  =  @sree2246 Писать по поводу багов")
 
 -- Подсекция
-local Section = Tab:NewSection("v 0.1.9         Последнее обновление : 20.09.2024")
+local Section = Tab:NewSection("v 0.2.0!                 Последнее обновление : 20.09.2024!")
 
 
 
