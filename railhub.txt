@@ -1,3 +1,16 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
  -- кто крякнет тот сын шлюхи
  -- ###############            ###           ###   ###              ###          ###   ###        ###   ############                      
  -- ###          ###          #####          ###   ###              ###          ###   ###        ###   ###       ###                         
@@ -53,62 +66,67 @@ local colors = {
 local Window = Library.CreateLib("RAILhub     Army Roblox RP RU", "RJTheme7")
 
 -- Секция
-local Tab = Window:NewTab("тп")
+local Tab = Window:NewTab("Тп")
 
 -- Подсекция
-local Section = Tab:NewSection("фарм тп           КОНТРАБАНДИСТЫ")
+local Section = Tab:NewSection("Фарм тп           КОНТРАБАНДИСТЫ")
 
 -- Кнопка
-Section:NewButton("тп задание", "тп чтоб брать задание", function()
+Section:NewButton("Тп задание", "тп, чтобы взять задание", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(623.0984497070312, 3.999999523162842, -697.6439208984375)
 end)
 
 -- Кнопка
-Section:NewButton("тп склад", "тп чтоб брать боеприпасы", function()
+Section:NewButton("Тп склад", "тп, чтобы взять боеприпасы", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(106.91151428222656, 3.2501282691955566, 113.99207305908203)
 end)
 
 -- Подсекция-------------------------------------------------------------------
-local Section = Tab:NewSection("тп точки")
+local Section = Tab:NewSection("Точки интереса")
 
 -- Кнопка
-Section:NewButton("кафе", "тп", function()
+Section:NewButton("Кофейня", "тп", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1510.12548828125, 3, -50.033023834228516)
 end)
 
 -- Кнопка
-Section:NewButton("кпп1", "тп", function()
+Section:NewButton("КПП-1", "тп", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(345.38934326171875, 3.099998950958252, 3.619844436645508)
 end)
 
 -- Кнопка
-Section:NewButton("кпп2", "тп", function()
+Section:NewButton("КПП-2", "тп", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2096.35595703125, 2.999999523162842, 93.45025634765625)
 end)
 
 -- Кнопка
-Section:NewButton("деревня", "тп", function()
+Section:NewButton("Деревня", "тп", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2578.659912109375, 3.050001621246338, 48.234134674072266)
 end)
 
 -- Кнопка
-Section:NewButton("центр военной части", "тп", function()
+Section:NewButton("Плац", "тп", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(33.97133255004883, 3.0999984741210938, -13.471328735351562)
 end)
 
 -- Кнопка
-Section:NewButton("база терористов", "тп", function()
+Section:NewButton("База кантробандистов", "тп", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(647.6337280273438, 18.26999282836914, -717.4557495117188)
 end)
 
 -- Кнопка
-Section:NewButton("кусты у кпп1", "тп", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(486.0335693359375, 2.999999523162842, 12.118302345275879)
+Section:NewButton("Кусты перед КПП-1", "тп", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(457.5315, 12.9999, -43.6891)
 end)
 
 -- Кнопка
-Section:NewButton("база наёмников", "тп", function()
+Section:NewButton("База наёмников", "тп", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(848.868408203125, 3.019998550415039, -1238.0062255859375)
+end)
+
+-- Кнопка
+Section:NewButton("Вышка у КПП-1", "тп", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(590.221, 140.583, 292.378)
 end)
 
 
@@ -124,30 +142,35 @@ end)
 
 
 -- Секция
-local Tab = Window:NewTab("игрок")
+local Tab = Window:NewTab("Игрок")
 
 -- Подсекция
-local Section = Tab:NewSection("FOV")
+local Section = Tab:NewSection("Сamera")
 
 -- Слайдер
-Section:NewSlider("FOV (new)", "Изменяет поле зрения камеры", 120, 10, function(value) -- 120 (Макс. значение) | 50 (Мин. значение)
+Section:NewSlider("FOV (test)", "Изменяет поле зрения камеры", 120, 10, function(value) -- 120 (Макс. значение) | 50 (Мин. значение)
     game.Workspace.CurrentCamera.FieldOfView = value -- Устанавливаем новое значение FOV
 end)
 
+-- Кнопка
+Section:NewButton("Аree cam (new)", "свободная камера (shift + p)", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Rollimonster/Roblox-FreeCam-Script/refs/heads/main/Roblox-FreeCam-Script'))()
+end)
+
 -- Подсекция
-local Section = Tab:NewSection("скорость")
+local Section = Tab:NewSection("Скорость")
 
 
 -- Слайдер
-Section:NewSlider("скорость", "скорость игрока", 40, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
+Section:NewSlider("Скорость", "скорость игрока", 40, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 
 -- Подсекция
-local Section = Tab:NewSection("hitbox")
+local Section = Tab:NewSection("Hitbox")
 
 -- Кнопка
-Section:NewButton("big hitbox", "делает большими хитбоксы", function()
+Section:NewButton("Big hitbox", "делает большими хитбоксы", function()
     _G.Size = 15
 _G.Disabled = true
 
@@ -169,7 +192,7 @@ end)
 end)
 
 -- Slider for setting big hitbox size
-Section:NewSlider("big hitbox (test)", "большие хитбоксы (не доработано, риск лагов!)", 40, 0, function(s) 
+Section:NewSlider("Big hitbox", "большие хитбоксы (не доработано, риск лагов!)", 40, 0, function(s) 
     _G.Size = s
     _G.Disabled = true
 
@@ -202,20 +225,20 @@ end)
 
 
 -- Подсекция
-local Section = Tab:NewSection("esp")
+local Section = Tab:NewSection("ESP")
 
 -- Кнопка
-Section:NewButton("esp", "видеть игроков через стены", function()
+Section:NewButton("ESP", "видеть игроков через стены", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/UESP'))()
 end)
 
 
 
 -- Подсекция
-local Section = Tab:NewSection("tptool")
+local Section = Tab:NewSection("TpTool")
 
 -- Кнопка
-Section:NewButton("tptool", "достал, кликнул, и типехнулся туда куда кликнул", function()
+Section:NewButton("TpTool", "телепортируйтесь щелчком мыши", function()
 local LocalPlayer = game.Players.LocalPlayer
 local rp = LocalPlayer.Character.HumanoidRootPart
 local tool = Instance.new("Tool",LocalPlayer.Backpack)
@@ -228,7 +251,7 @@ end)
 end)
 
 -- Подсекция
-local Section = Tab:NewSection("click delete tool")
+local Section = Tab:NewSection("Сlick delete tool")
 
 -- Кнопка
 Section:NewButton("ctrl+click=delete", "кликнул = удалил", function()
@@ -244,13 +267,13 @@ end)
 end)
 
 -- Секция
-local Tab = Window:NewTab("мир")
+local Tab = Window:NewTab("Мир")
 
 -- Подсекция
-local Section = Tab:NewSection("карта")
+local Section = Tab:NewSection("Карта")
 
 -- Кнопка
-Section:NewButton("все светло", "удаляет тени + делает день         вкл-выкл", function()
+Section:NewButton("Все светло", "Удаляет тени + делает день         вкл-выкл", function()
 if not _G.FullBrightExecuted then
 
 	_G.FullBrightEnabled = false
@@ -405,41 +428,32 @@ Section:NewButton("Удалить туман", "Удаляет все объек
 end)
 
 -- Секция
-local Tab = Window:NewTab("разное")
+local Tab = Window:NewTab("Разное")
 
 -- Подсекция
-local Section = Tab:NewSection("разное")
+local Section = Tab:NewSection("Разное")
 
 -- Кнопка
-Section:NewButton("Infinite Yield", "запускает скрипт infinite yield", function()
+Section:NewButton("Infinite Yield", "Запускает скрипт infinite yield", function()
 
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 
 end)
 
 -- Кнопка
-Section:NewButton("Удалить все текстуры (new)                              test", "Удаляет все текстуры и детали из Workspace", function()
-    -- Проходим через все объекты в Workspace
-    for _, object in ipairs(game.Workspace:GetDescendants()) do
-        -- Проверяем, является ли объект текстурой или декалем
-        if object:IsA("Texture") or object:IsA("Decal") then
-            object:Destroy() -- Удаляем текстуру или декаль
-            print("Удалено: " .. object.Name) -- Выводим сообщение об удалении
-        end
-    end
-
-    print("Все текстуры и декали были успешно удалены.")
+Section:NewButton("Удалить все текстуры (не работате)  ", "Удаляет все текстуры и детали из Workspace", function()
+    print("временно выключен иза недоработок")
 end)
 
 
 -- Секция
-local Tab = Window:NewTab("от создателя")
+local Tab = Window:NewTab("От создателя")
 
 -- Подсекция
-local Section = Tab:NewSection("discord  =  @sree2246 писать по поводу багов")
+local Section = Tab:NewSection("discord  =  @sree2246 Писать по поводу багов")
 
 -- Подсекция
-local Section = Tab:NewSection("v 0.1.6         19.09.2024")
+local Section = Tab:NewSection("v 0.1.8         20.09.2024")
 
 
 
