@@ -129,6 +129,14 @@ Section:NewButton("Вышка у КПП-1", "тп", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(590.221, 140.583, 292.378)
 end)
 
+-- Подсекция
+local Section = Tab:NewSection("AFK")
+
+-- Кнопка
+Section:NewButton("AFK зона", "тп", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1196.45837, -7.10957336, -2100.12256)
+end)
+
 
 
 
@@ -143,6 +151,29 @@ end)
 
 -- Секция
 local Tab = Window:NewTab("Игрок")
+
+-- Подсекция
+local Section = Tab:NewSection("AFK")
+
+-- Статус AFK
+local isAFK = false
+
+-- Кнопка для активации/деактивации AFK
+Section:NewButton("AFK mod (test)", "обход анти афк", function()
+    local VU = game:GetService("VirtualUser")
+    
+    -- Переключаем статус
+    isAFK = not isAFK
+    
+    if isAFK then
+        while isAFK do  -- Зацикливаем до тех пор, пока isAFK истинно
+            wait(300)  -- Можно изменить на нужный интервал ожидания.
+            VU:CaptureController()
+            VU:ClickButton1(Vector2.new())
+        end
+    end
+end)
+
 
 -- Подсекция
 local Section = Tab:NewSection("Сamera")
@@ -454,7 +485,6 @@ local Section = Tab:NewSection("discord  =  @sree2246 Писать по пово
 
 -- Подсекция
 local Section = Tab:NewSection("v 0.1.9         Последнее обновление : 20.09.2024")
-
 
 
 
