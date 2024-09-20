@@ -472,7 +472,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/
 end)
 
 -- Кнопка
-Section:NewButton("Удалить все текстуры (не работате)  ", "Удаляет все текстуры и детали из Workspace", function()
+Section:NewButton("Удалить все текстуры (не работатет)  ", "Удаляет все текстуры и детали из Workspace", function()
     print("временно выключен иза недоработок")
 end)
 
