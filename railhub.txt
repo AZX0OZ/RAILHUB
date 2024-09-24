@@ -178,10 +178,28 @@ end)
 -- Подсекция
 local Section = Tab:NewSection("Сamera")
 
--- Слайдер
-Section:NewSlider("FOV (test)", "Изменяет поле зрения камеры", 120, 10, function(value) -- 120 (Макс. значение) | 50 (Мин. значение)
-    game.Workspace.CurrentCamera.FieldOfView = value -- Устанавливаем новое значение FOV
+local camera = game.Workspace.CurrentCamera
+local sliderValue = 70 -- Исходное значение FOV, равное максимальному значению слайдера
+
+-- Создаем слайдер для изменения FOV
+Section:NewSlider("FOV (test)", "Изменяет поле зрения камеры", 120, 10, function(value)
+    sliderValue = value -- Устанавливаем новое значение для слайдера
+    camera.FieldOfView = sliderValue -- Устанавливаем новое значение FOV
 end)
+
+-- Функция для постоянной проверки значения FOV
+local function monitorFOV()
+    while true do
+        wait(0) -- Ожидание 0.1 секунды перед следующей проверкой
+        if camera.FieldOfView ~= sliderValue then
+            -- Если текущее значение FOV не соответствует значению слайдера, восстанавливаем его
+            camera.FieldOfView = sliderValue
+        end
+    end
+end
+
+-- Запускаем функцию проверки FOV в отдельном потоке
+spawn(monitorFOV)
 
 -- Кнопка
 Section:NewButton("free cam", "свободная камера (shift + p)", function()
@@ -458,6 +476,88 @@ Section:NewButton("Удалить туман", "Удаляет все объек
     print("Все объекты в Lighting были успешно удалены.")
 end)
 
+-- Кнопка
+Section:NewButton("Fps boost (test)", "Удаляет все не нужные объекты для увеличения фпс", function()
+    local decalsyeeted = true 
+    local g = game
+    local w = g.Workspace
+    local l = g.Lighting
+    local t = w.Terrain
+
+    sethiddenproperty(l, "Technology", 2)
+    sethiddenproperty(t, "Decoration", false)
+    t.WaterWaveSize = 0
+    t.WaterWaveSpeed = 0
+    t.WaterReflectance = 0
+    t.WaterTransparency = 0
+    l.GlobalShadows = 0
+    l.FogEnd = 9e9
+    l.Brightness = 0
+    settings().Rendering.QualityLevel = "Level01"
+
+    for i, v in pairs(w:GetDescendants()) do
+        if v:IsA("BasePart") and not v:IsA("MeshPart") then
+            v.Material = "Plastic"
+            v.Reflectance = 0
+        elseif (v:IsA("Decal") or v:IsA("Texture")) and decalsyeeted then
+            v.Transparency = 1
+        elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+            v.Lifetime = NumberRange.new(0)
+        elseif v:IsA("Explosion") then
+            v.BlastPressure = 1
+            v.BlastRadius = 1
+        elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+            v.Enabled = false
+        elseif v:IsA("MeshPart") and decalsyeeted then
+            v.Material = "Plastic"
+            v.Reflectance = 0
+            v.TextureID = 10385902758728957 -- Make sure this texture ID is valid
+        elseif v:IsA("SpecialMesh") and decalsyeeted then
+            v.TextureId = 0
+        elseif v:IsA("ShirtGraphic") and decalsyeeted then
+            v.Graphic = 0
+        elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
+            v[v.ClassName .. "Template"] = 0
+        end
+    end
+
+    for i = 1, #l:GetChildren() do
+        local e = l:GetChildren()[i]
+        if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+            e.Enabled = false
+        end
+    end
+
+    w.DescendantAdded:Connect(function(v)
+        wait() -- prevent errors and allow time for properties to update
+        if v:IsA("BasePart") and not v:IsA("MeshPart") then
+            v.Material = "Plastic"
+            v.Reflectance = 0
+        elseif (v:IsA("Decal") or v:IsA("Texture")) and decalsyeeted then
+            v.Transparency = 1
+        elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+            v.Lifetime = NumberRange.new(0)
+        elseif v:IsA("Explosion") then
+            v.BlastPressure = 1
+            v.BlastRadius = 1
+        elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+            v.Enabled = false
+        elseif v:IsA("MeshPart") and decalsyeeted then
+            v.Material = "Plastic"
+            v.Reflectance = 0
+            v.TextureID = 10385902758728957 -- Make sure this texture ID is valid
+        elseif v:IsA("SpecialMesh") and decalsyeeted then
+            v.TextureId = 0
+        elseif v:IsA("ShirtGraphic") and decalsyeeted then
+            v.ShirtGraphic = 0
+        elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
+            v[v.ClassName .. "Template"] = 0
+        end
+    end)
+end)
+
+
+
 -- Секция
 local Tab = Window:NewTab("Разное")
 
@@ -471,10 +571,6 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/
 
 end)
 
--- Кнопка
-Section:NewButton("Удалить все текстуры (не работатет)  ", "Удаляет все текстуры и детали из Workspace", function()
-    print("временно выключен иза недоработок")
-end)
 
 
 -- Секция
@@ -484,7 +580,7 @@ local Tab = Window:NewTab("От создателя")
 local Section = Tab:NewSection("discord  =  @sree2246 Писать по поводу багов")
 
 -- Подсекция
-local Section = Tab:NewSection("v 0.2.0!                 Последнее обновление : 20.09.2024!")
+local Section = Tab:NewSection("v 0.2.1!                 Последнее обновление : 25.09.2024!")
 
 
 
