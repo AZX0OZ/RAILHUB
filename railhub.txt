@@ -184,7 +184,7 @@ Section:NewSlider("FOV (test)", "Изменяет поле зрения каме
 end)
 
 -- Кнопка
-Section:NewButton("Аree cam (new)", "свободная камера (shift + p)", function()
+Section:NewButton("free cam", "свободная камера (shift + p)", function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/Rollimonster/Roblox-FreeCam-Script/refs/heads/main/Roblox-FreeCam-Script'))()
 end)
 
