@@ -10,7 +10,6 @@
 
 
 
-
  -- кто крякнет тот сын шлюхи
  -- ###############            ###           ###   ###              ###          ###   ###        ###   ############                      
  -- ###          ###          #####          ###   ###              ###          ###   ###        ###   ###       ###                         
@@ -348,14 +347,14 @@ if not _G.FullBrightExecuted then
 	end)
 
 	game:GetService("Lighting"):GetPropertyChangedSignal("ClockTime"):Connect(function()
-		if game:GetService("Lighting").ClockTime ~= 12 and game:GetService("Lighting").ClockTime ~= _G.NormalLightingSettings.ClockTime then
+		if game:GetService("Lighting").ClockTime ~= 13 and game:GetService("Lighting").ClockTime ~= _G.NormalLightingSettings.ClockTime then
 			_G.NormalLightingSettings.ClockTime = game:GetService("Lighting").ClockTime
 			if not _G.FullBrightEnabled then
 				repeat
 					wait()
 				until _G.FullBrightEnabled
 			end
-			game:GetService("Lighting").ClockTime = 12
+			game:GetService("Lighting").ClockTime = 13
 		end
 	end)
 
@@ -396,7 +395,7 @@ if not _G.FullBrightExecuted then
 	end)
 
 	game:GetService("Lighting").Brightness = 1
-	game:GetService("Lighting").ClockTime = 12
+	game:GetService("Lighting").ClockTime = 13
 	game:GetService("Lighting").FogEnd = 786543
 	game:GetService("Lighting").GlobalShadows = false
 	game:GetService("Lighting").Ambient = Color3.fromRGB(178, 178, 178)
@@ -433,34 +432,35 @@ end)
 
 -- Кнопка
 Section:NewButton("Удалить зелень", "Удаляет всю растительность", function()
-    -- Ищем папку "map" в Workspace
+ 
+    -- Получаем папку "map"
     local mapFolder = game.Workspace:FindFirstChild("map") 
 
     if mapFolder then
-        -- Удаляем папку "Trees"
+        -- Удаляем папку "Trees", если она есть
         local treesFolder = mapFolder:FindFirstChild("Trees") 
         
         if treesFolder then
-            treesFolder:Destroy() -- Удаляем папку Trees
+            treesFolder:Destroy() -- Удаляем папку "Trees"
             print("Папка 'Trees' была удалена.") 
         else
             print("Папка 'Trees' не найдена в папке 'map'.") 
         end
 
-        -- Удаляем сгруппированную модель "tree"
-        local treeModel = mapFolder:FindFirstChild("Tree") 
-
-        if treeModel then
-            TreeModel:Destroy() -- Удаляем сгруппированную модель tree
-            print("Модель 'tree' была удалена.") 
-        else
-            print("Модель 'tree' не найдена в папке 'map'.") 
+        -- Удаляем все модели "Tree" из папки "map"
+        for _, model in pairs(mapFolder:GetChildren()) do
+            if model:IsA("Model") and model.Name == "Tree" then
+                model:Destroy() -- Удаляем модель "Tree"
+                print("Модель 'Tree' была удалена.")
+            end
         end
 
     else
         print("Папка 'map' не найдена в Workspace.") 
     end
 end)
+
+
 
 -- Кнопка
 Section:NewButton("Удалить туман", "Удаляет все объекты из папки Lighting", function()
@@ -556,7 +556,18 @@ Section:NewButton("Fps boost (test)", "Удаляет все не нужные �
     end)
 end)
 
+-- Кнопка
+Section:NewButton("rtx (new)", "красивая графика (риск лагов)", function()
 
+local Lighting = game:GetService("Lighting")
+
+Lighting.Technology = Enum.Technology.Future
+Lighting.Ambient = Color3.fromRGB(25, 25, 25) 
+Lighting.OutdoorAmbient = Color3.fromRGB(25, 25, 25) 
+Lighting.ShadowSoftness = (0.1)
+Lighting.EnvironmentDiffuseScale = (0.7)
+Lighting.EnvironmentSpecularScale = (0.7)
+end)
 
 -- Секция
 local Tab = Window:NewTab("Разное")
@@ -580,8 +591,7 @@ local Tab = Window:NewTab("От создателя")
 local Section = Tab:NewSection("discord  =  @sree2246 Писать по поводу багов")
 
 -- Подсекция
-local Section = Tab:NewSection("v 0.2.1!                 Последнее обновление : 25.09.2024!")
-
+local Section = Tab:NewSection("v 0.2.3!                 Последнее обновление : 26.09.2024!")
 
 
 
