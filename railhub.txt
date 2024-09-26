@@ -159,7 +159,7 @@ local Section = Tab:NewSection("AFK")
 local isAFK = false
 
 -- Кнопка для активации/деактивации AFK
-Section:NewButton("AFK mod (test)", "обход анти афк", function()
+Section:NewButton("AFK (test)", "обход анти афк", function()
     local VU = game:GetService("VirtualUser")
     
     -- Переключаем статус
