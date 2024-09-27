@@ -10,6 +10,7 @@
 
 
 
+
  -- кто крякнет тот сын шлюхи
  -- ###############            ###           ###   ###              ###          ###   ###        ###   ############                      
  -- ###          ###          #####          ###   ###              ###          ###   ###        ###   ###       ###                         
@@ -556,18 +557,34 @@ Section:NewButton("Fps boost (test)", "Удаляет все не нужные �
     end)
 end)
 
+-- Переменная для отслеживания состояния тумблера
+local isRtxEnabled = false
+
 -- Кнопка
-Section:NewButton("rtx (new)", "красивая графика (риск лагов)", function()
+Section:NewButton("rtx (lag)", "красивая графика (риск лагов)    вкл-выкл", function()
+    local Lighting = game:GetService("Lighting")
 
-local Lighting = game:GetService("Lighting")
-
-Lighting.Technology = Enum.Technology.Future
-Lighting.Ambient = Color3.fromRGB(25, 25, 25) 
-Lighting.OutdoorAmbient = Color3.fromRGB(25, 25, 25) 
-Lighting.ShadowSoftness = (0.1)
-Lighting.EnvironmentDiffuseScale = (0.7)
-Lighting.EnvironmentSpecularScale = (0.7)
+    if not isRtxEnabled then
+        -- Включить RTX настройки
+        Lighting.Technology = Enum.Technology.Future
+        Lighting.Ambient = Color3.fromRGB(25, 25, 25) 
+        Lighting.OutdoorAmbient = Color3.fromRGB(25, 25, 25) 
+        Lighting.ShadowSoftness = 0.1
+        Lighting.EnvironmentDiffuseScale = 0.7
+        Lighting.EnvironmentSpecularScale = 0.7
+        isRtxEnabled = true -- Изменяем состояние на включено
+    else
+        -- Вернуть настройки обратно
+        Lighting.Technology = Enum.Technology.ShadowMap -- Или другое значение по умолчанию
+        Lighting.Ambient = Color3.fromRGB(70, 70, 70) -- Белый цвет по умолчанию
+        Lighting.OutdoorAmbient = Color3.fromRGB(0, 0, 0) -- Белый цвет по умолчанию
+        Lighting.ShadowSoftness = 0 -- Значение по умолчанию
+        Lighting.EnvironmentDiffuseScale = 1 -- Значение по умолчанию
+        Lighting.EnvironmentSpecularScale = 0.425 -- Значение по умолчанию
+        isRtxEnabled = false -- Изменяем состояние на выключено
+    end
 end)
+
 
 -- Секция
 local Tab = Window:NewTab("Разное")
@@ -591,7 +608,7 @@ local Tab = Window:NewTab("От создателя")
 local Section = Tab:NewSection("discord  =  @sree2246 Писать по поводу багов")
 
 -- Подсекция
-local Section = Tab:NewSection("v 0.2.3!                 Последнее обновление : 26.09.2024!")
+local Section = Tab:NewSection("v 0.2.4!                 Последнее обновление : 27.09.2024!")
 
 
 
