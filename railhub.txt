@@ -478,7 +478,7 @@ Section:NewButton("Удалить туман", "Удаляет все объек
 end)
 
 -- Кнопка
-Section:NewButton("Fps boost (test)", "Удаляет все не нужные объекты для увеличения фпс", function()
+Section:NewButton("Fps boost", "Удаляет все не нужные объекты для увеличения фпс", function()
     local decalsyeeted = true 
     local g = game
     local w = g.Workspace
