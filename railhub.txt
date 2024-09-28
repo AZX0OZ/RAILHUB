@@ -96,7 +96,7 @@ end)
 
 -- Кнопка
 Section:NewButton("КПП-2", "тп", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2096.35595703125, 2.999999523162842, 93.45025634765625)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1305.15637, 16.7970123, -66.1204681)
 end)
 
 -- Кнопка
