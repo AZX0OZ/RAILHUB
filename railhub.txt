@@ -608,7 +608,16 @@ local Tab = Window:NewTab("От создателя")
 local Section = Tab:NewSection("discord  =  @sree2246 Писать по поводу багов")
 
 -- Подсекция
-local Section = Tab:NewSection("v 0.2.4!                 Последнее обновление : 27.09.2024!")
+local Section = Tab:NewSection("v 0.2.5!                 Последнее обновление : 27.09.2024!")
+
+local textToCopy = "https://discord.gg/bvEQEUuCFQ"
+
+-- Кнопка
+Section:NewButton("Discord Link", "Ссылка на дискорд сервер", function()
+    setclipboard(textToCopy)  -- Копируем текст в буфер обмена
+    print("Ссылка была скопирована: " .. textToCopy) -- Печатает сообщение в консоль для подтверждения
+end)
+
 
 
 
